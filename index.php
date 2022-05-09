@@ -1,19 +1,16 @@
 <?php
+namespace exercises;
 
-try {
-    echo 'Current PHP version: ' . phpversion();
-    echo '<br />';
+use exercises\Robot;
 
-    $host = 'db';
-    $dbname = 'database';
-    $user = 'user';
-    $pass = 'pass';
-    $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8";
-    $conn = new PDO($dsn, $user, $pass);
+require 'exercises/hello-world.php';
+require 'exercises/reverse.php';
+require 'exercises/Robot.php';
 
-    echo 'Database connected successfully';
-    echo '<br />';
-} catch (\Throwable $t) {
-    echo 'Error: ' . $t->getMessage();
-    echo '<br />';
-}
+echo(helloWorld() . "\n");
+echo(reverse("Hello, World!") . "\n");
+
+$name = new Robot();
+echo $name->getName() . "\n";
+$newName = $name->reset();
+echo $newName;
