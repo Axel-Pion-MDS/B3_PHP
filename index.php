@@ -2,13 +2,14 @@
 namespace exercises;
 
 use exercises\Robot;
-use exercises\Clock;
+//use exercises\Clock;
 
 require 'exercises/hello-world.php';
 require 'exercises/reverse.php';
 require 'exercises/Robot.php';
 require 'exercises/creditCard.php';
-require 'exercises/Clock.php';
+//require 'exercises/Clock.php';
+require 'exercises/School.php';
 
 //echo(helloWorld() . "\n");
 //echo(reverse("Hello, World!") . "\n");
@@ -29,14 +30,49 @@ require 'exercises/Clock.php';
 
 //echo '<pre>' . var_export($table, true) . '</pre>';
 
-$clock1 = new Clock();
-echo ($clock1 . "\n");
-$clock2 = new Clock();
-echo ($clock2 . "\n");
-$clock3 = new Clock('12:30:00');
-echo ($clock3 . "\n");
-$clock3->add(10);
-echo ($clock3 . "\n");
-$clock3 = new Clock('10:08:59');
-echo ($clock3 . "\n");
+//$clock1 = new Clock();
+//echo ($clock1 . "\n");
+//$clock2 = new Clock();
+//echo ($clock2 . "\n");
+//$clock3 = new Clock('12:30:00');
+//echo ($clock3 . "\n");
+//$clock3->add(10);
+//echo ($clock3 . "\n");
+//$clock3 = new Clock('10:08:59');
+//echo ($clock3 . "\n");
 
+$students[] = [
+    [
+        'name' => 'Anna',
+        'grade' => 1
+    ],
+    [
+        'name' => 'Barb',
+        'grade' => 1
+    ],
+    [
+        'name' => 'Charlie',
+        'grade' => 1
+    ],
+    [
+        'name' => 'Alex',
+        'grade' => 2
+    ],
+    [
+        'name' => 'Peter',
+        'grade' => 2
+    ],
+    [
+        'name' => 'Zoe',
+        'grade' => 2
+    ],
+    [
+        'name' => 'Jim',
+        'grade' => 5
+    ],
+];
+
+$school = new School($students);
+echo ($school->grade(2));
+
+echo '<pre>' . var_export($school->studentsByGradeAlphabetical(), true) . '</pre>';
