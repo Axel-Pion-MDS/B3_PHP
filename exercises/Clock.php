@@ -1,46 +1,32 @@
 <?php
 
-use DateInterval;
-use Datetime;
-use Exception;
-
 class Clock
 {
     private DateTime $time;
 
-    /**
-     * @throws Exception
-     */
-    public function __construct(?string $time = null)
+
+    public function __construct(?int $hour = 0, ?int $min = 0)
     {
-      date_default_timezone_set('Europe/Paris');
-      $this->time = new Datetime($time ?? 'now');
+        date_default_timezone_set('Europe/Paris');
+        $this->time = (new DateTime())->setTime($hour, $min)->setDate(0, 0, 0);
     }
 
-    public function getTime(): DateTime
+    public function add(int $minute): Clock
     {
-      return $this->time;
+        $this->time->modify("$minute minutes");
+
+        return $this;
     }
 
-    /**
-     * @throws Exception
-     */
-    public function add(int $minute): void
+    public function sub(int $minute): Clock
     {
-      $this->time->add(new DateInterval('PT' . $minute . 'M'));
-    }
+        $this->time->modify("-$minute minutes");
 
-
-    /**
-     * @throws Exception
-     */
-    public function substract(int $minute): void
-    {
-      $this->time->sub(new DateInterval('PT' . $minute . 'M'));
+        return $this;
     }
 
     public function __toString(): string
     {
-      return $this->time->format('H:i');
+        return $this->time->format('H:i');
     }
 }

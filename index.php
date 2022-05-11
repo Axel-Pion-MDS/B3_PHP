@@ -2,7 +2,7 @@
 namespace exercises;
 
 //use exercises\Robot;
-//use exercises\Clock;
+use Clock;
 
 use Matrix;
 
@@ -10,7 +10,7 @@ require 'exercises/hello-world.php';
 require 'exercises/reverse.php';
 //require 'exercises/Robot.php';
 require 'exercises/creditCard.php';
-//require 'exercises/Clock.php';
+require 'exercises/Clock.php';
 require 'exercises/School.php';
 //require 'exercises/Matrix.php';
 
@@ -33,29 +33,24 @@ require 'exercises/School.php';
 
 //echo '<pre>' . var_export($table, true) . '</pre>';
 
-//$clock1 = new Clock();
-//echo ($clock1 . "\n");
-//$clock2 = new Clock();
-//echo ($clock2 . "\n");
-//$clock3 = new Clock('12:30:00');
-//echo ($clock3 . "\n");
-//$clock3->add(10);
-//echo ($clock3 . "\n");
-//$clock3 = new Clock('10:08:59');
-//echo ($clock3 . "\n");
+$clock = new Clock(6, 15);
+echo ($clock->__toString() . "\n");
+$clock = $clock->add(-160);
+echo ($clock->__toString() . "\n");
 
 
-$school = new School();
-echo ($school->grade(2));
-$school->add('Claire', 2);
-$school->add('Rémi', 2);
-$school->add('David', 2);
-$school->add('Axel', 5);
-$school->add('Marc', 3);
-$school->add('Marie', 6);
-$school->studentsByGradeAlphabetical();
 
-echo '<pre>' . var_export($school->studentsByGradeAlphabetical(), true) . '</pre>';
+//$school = new School();
+//echo ($school->grade(2));
+//$school->add('Claire', 2);
+//$school->add('Rémi', 2);
+//$school->add('David', 2);
+//$school->add('Axel', 5);
+//$school->add('Marc', 3);
+//$school->add('Marie', 6);
+//$school->studentsByGradeAlphabetical();
+//
+//echo '<pre>' . var_export($school->studentsByGradeAlphabetical(), true) . '</pre>';
 
 //$test = "1 2\n3 4";
 //$test2 = "1 2 3\n4 5 6\n7 8 9";
