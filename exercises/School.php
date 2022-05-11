@@ -1,55 +1,44 @@
 <?php
 
-namespace exercises;
-
 class School
 {
     private array $students;
 
-    public function __construct(?array $student = null)
+    public function __construct()
     {
-        $this->students = $student[0];
+        $this->students = [];
     }
 
     public function add(string $name, int $grade): void
     {
         $this->students[] = [
-            'name' => $name,
-            'grade' => $grade
+            $name,
+            $grade
         ];
-        var_dump($this->students);
     }
 
-    public function grade(int $grade): string
+    public function grade(int $grade): array
     {
         $result = [];
+
         foreach ($this->students as $student) {
-            if ($student['grade'] === $grade) {
-                $result[] = $student['name'];
+            if ($student[1] === $grade) {
+                $result[] = $student[0];
             }
         }
 
-        if (count($result) === 1) {
-            $list = implode($result);
-
-            return "Which students are in grade $grade ?\nWe've only got $list just now.";
-        }
-
-        if (count($result) === 0) {
-            return "Which students are in grade $grade ?\nWe've got nobody just now.";
-        }
-
-        $list = implode(', ', $result);
-
-        return "Which students are in grade $grade ?\nWe've got $list just now.";
+        return $result;
     }
 
     public function studentsByGradeAlphabetical(): array
     {
-        ksort($this->students, SORT_REGULAR);
+        $result = [];
+        sort($this->students, SORT_REGULAR);
         foreach ($this->students as $student) {
-            asort($student, SORT_REGULAR);
+            $result[$student[1]][] = $student[0];
         }
-        return $this->students;
+        ksort($result, SORT_REGULAR);
+
+        return $result;
     }
 }

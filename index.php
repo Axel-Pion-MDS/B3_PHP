@@ -11,8 +11,8 @@ require 'exercises/reverse.php';
 //require 'exercises/Robot.php';
 require 'exercises/creditCard.php';
 //require 'exercises/Clock.php';
-//require 'exercises/School.php';
-require 'exercises/Matrix.php';
+require 'exercises/School.php';
+//require 'exercises/Matrix.php';
 
 //echo(helloWorld() . "\n");
 //echo(reverse("Hello, World!") . "\n");
@@ -44,48 +44,25 @@ require 'exercises/Matrix.php';
 //$clock3 = new Clock('10:08:59');
 //echo ($clock3 . "\n");
 
-//$students[] = [
-//    [
-//        'name' => 'Anna',
-//        'grade' => 1
-//    ],
-//    [
-//        'name' => 'Barb',
-//        'grade' => 1
-//    ],
-//    [
-//        'name' => 'Charlie',
-//        'grade' => 1
-//    ],
-//    [
-//        'name' => 'Alex',
-//        'grade' => 2
-//    ],
-//    [
-//        'name' => 'Peter',
-//        'grade' => 2
-//    ],
-//    [
-//        'name' => 'Zoe',
-//        'grade' => 2
-//    ],
-//    [
-//        'name' => 'Jim',
-//        'grade' => 5
-//    ],
-//];
-//
-//$school = new School($students);
-//echo ($school->grade(2));
-//
-//echo '<pre>' . var_export($school->studentsByGradeAlphabetical(), true) . '</pre>';
 
-$test = "1 2\n3 4";
-$test2 = "1 2 3\n4 5 6\n7 8 9";
-$matrix1 = new Matrix($test);
-$row = $matrix1->getRow(2);
-echo '<pre>' . var_export($row, true) . '</pre>';
-$matrix2 = new Matrix($test2);
-$column= $matrix2->getColumn(3);
-echo '<pre>' . var_export($column, true) . '</pre>';
+$school = new School();
+echo ($school->grade(2));
+$school->add('Claire', 2);
+$school->add('Rémi', 2);
+$school->add('David', 2);
+$school->add('Axel', 5);
+$school->add('Marc', 3);
+$school->add('Marie', 6);
+$school->studentsByGradeAlphabetical();
+
+echo '<pre>' . var_export($school->studentsByGradeAlphabetical(), true) . '</pre>';
+
+//$test = "1 2\n3 4";
+//$test2 = "1 2 3\n4 5 6\n7 8 9";
+//$matrix1 = new Matrix($test);
+//$row = $matrix1->getRow(2);
+//echo '<pre>' . var_export($row, true) . '</pre>';
+//$matrix2 = new Matrix($test2);
+//$column= $matrix2->getColumn(3);
+//echo '<pre>' . var_export($column, true) . '</pre>';
 

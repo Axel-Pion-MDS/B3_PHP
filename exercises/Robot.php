@@ -1,7 +1,5 @@
 <?php
 
-namespace exercises;
-
 class Robot {
     private string $name;
     private array $robots;
