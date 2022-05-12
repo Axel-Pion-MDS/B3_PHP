@@ -4,6 +4,7 @@ namespace exercises;
 //use exercises\Robot;
 use Clock;
 
+use DndCharacter;
 use Matrix;
 
 require 'exercises/hello-world.php';
@@ -13,6 +14,7 @@ require 'exercises/creditCard.php';
 require 'exercises/Clock.php';
 require 'exercises/School.php';
 //require 'exercises/Matrix.php';
+require 'exercises/DndCharacter.php';
 
 //echo(helloWorld() . "\n");
 //echo(reverse("Hello, World!") . "\n");
@@ -33,10 +35,10 @@ require 'exercises/School.php';
 
 //echo '<pre>' . var_export($table, true) . '</pre>';
 
-$clock = new Clock(6, 15);
-echo ($clock->__toString() . "\n");
-$clock = $clock->add(-160);
-echo ($clock->__toString() . "\n");
+//$clock = new Clock(6, 15);
+//echo ($clock->__toString() . "\n");
+//$clock = $clock->add(-160);
+//echo ($clock->__toString() . "\n");
 
 
 
@@ -61,3 +63,7 @@ echo ($clock->__toString() . "\n");
 //$column= $matrix2->getColumn(3);
 //echo '<pre>' . var_export($column, true) . '</pre>';
 
+$test = new DndCharacter();
+var_dump($test->generate());
+echo ($test->getConstitutionModifier());
+echo ($test->getHitpoint());
